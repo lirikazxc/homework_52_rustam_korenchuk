@@ -1,0 +1,2 @@
+Tracking file by folder pattern:  migrations
+[{"model": "webapp.task", "pk": 1, "fields": {"status": "in_progress", "description": "Testing todolist", "task_date": null}}, {"model": "webapp.task", "pk": 2, "fields": {"status": "in_progress", "description": "Testing todolist2", "task_date": null}}]
