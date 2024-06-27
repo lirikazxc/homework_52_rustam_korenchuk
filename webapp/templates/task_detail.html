@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ task.description }}</h1>
+    <p>Статус:  {{ task.status }}</p>
+    <p>дата:   {{ task.task_date }}</p>
+    <p>{{ task.detail_description }}</p>
+    <a href="">Назад</a>
+{% endblock %}

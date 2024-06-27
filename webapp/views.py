@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from webapp.models import Task
 
@@ -16,3 +16,8 @@ def create_task(request):
         Task.objects.create(description=description, status=status, task_date=task_date)
         return redirect("index")
     return render(request, "task_create.html")
+
+
+def detail_task(request, task_id):
+    task = get_object_or_404(Task, pk=task_id)
+    return render(request, 'task_detail.html', {'task': task})
