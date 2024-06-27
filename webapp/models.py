@@ -10,6 +10,7 @@ class Task(models.Model):
     status = models.CharField(max_length=30, choices=status_choices, default="New")
     description = models.CharField(max_length=200)
     task_date = models.DateField(null=True, blank=True)
+    detail_description = models.CharField(max_length=2000, blank=True, null=True)
 
     def __str__(self):
         return self.description
