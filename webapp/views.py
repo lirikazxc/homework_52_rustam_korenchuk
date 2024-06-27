@@ -13,7 +13,8 @@ def create_task(request):
         description = request.POST.get("description")
         status = request.POST.get("status")
         task_date = request.POST.get("task_date")
-        Task.objects.create(description=description, status=status, task_date=task_date)
+        task_detail = request.POST.get("detail_description")
+        Task.objects.create(description=description, status=status, task_date=task_date, detail_description=task_detail)
         return redirect("index")
     return render(request, "task_create.html")
 
