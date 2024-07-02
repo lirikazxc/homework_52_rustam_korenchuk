@@ -19,6 +19,23 @@ def create_task(request):
     return render(request, "task_create.html")
 
 
+def update_task(request, task_id):
+    if request.method == "GET":
+        return render(request, "update_task.html", context={"task": get_object_or_404(Task, pk=task_id)})
+    else:
+        description = request.POST.get("description")
+        status = request.POST.get("status")
+        task_date = request.POST.get("task_date")
+        task_detail = request.POST.get("detail_description")
+        task = get_object_or_404(Task, pk=task_id)
+        task.description = description
+        task.status = status
+        task.task_date = task_date
+        task.detail_description = task_detail
+        task.save()
+        return redirect("index")
+
+
 def detail_task(request, task_id):
     task = get_object_or_404(Task, pk=task_id)
     return render(request, 'task_detail.html', {'task': task})
