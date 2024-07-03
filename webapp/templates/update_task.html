@@ -15,10 +15,7 @@
             <option value="done">Сделано</option>
         </select>
     </div>
-    <div class="form-group">
-        <label for="due_date">Дата выполнения</label>
-        <input type="text" class="form-control" value="{{ task.task_date }}" id="task_date" name="task_date" placeholder="YYYY-MM-DD">
-    </div>
+
     <div class="form-group">
         <label for="detail_description">Подробное описание</label>
         <textarea class="form-control" name="detail_description" id="detail_description" cols="30" rows="3">{{ task.detail_description }}</textarea>

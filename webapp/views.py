@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render, redirect, get_object_or_404
 
 from webapp.models import Task
@@ -25,12 +27,11 @@ def update_task(request, task_id):
     else:
         description = request.POST.get("description")
         status = request.POST.get("status")
-        task_date = request.POST.get("task_date")
         task_detail = request.POST.get("detail_description")
         task = get_object_or_404(Task, pk=task_id)
         task.description = description
         task.status = status
-        task.task_date = task_date
+        task.task_date = datetime.datetime.now()
         task.detail_description = task_detail
         task.save()
         return redirect("index")
